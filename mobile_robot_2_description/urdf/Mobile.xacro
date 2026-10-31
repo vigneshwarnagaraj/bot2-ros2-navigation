@@ -1,0 +1,570 @@
+<?xml version="1.0" ?>
+<robot name="Mobile" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find mobile_robot_2_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find mobile_robot_2_description)/urdf/Mobile.trans" />
+<xacro:include filename="$(find mobile_robot_2_description)/urdf/Mobile.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.00017454037512653657 -1.3598256105074067e-18 0.11794017355956482" rpy="0 0 0"/>
+    <mass value="2.4493354501778066"/>
+    <inertia ixx="0.020018" iyy="0.021687" izz="0.033134" ixy="0.0" iyz="-0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-3.6145245860839465e-14 -0.00037537021934158643 0.0" rpy="0 0 0"/>
+    <mass value="0.16101730491149918"/>
+    <inertia ixx="0.000114" iyy="0.000212" izz="0.000114" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-7.418352716358315e-14 0.00037537021934158643 0.0" rpy="0 0 0"/>
+    <mass value="0.1610173049114984"/>
+    <inertia ixx="0.000114" iyy="0.000212" izz="0.000114" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.14 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_motor_1">
+  <inertial>
+    <origin xyz="-2.3662797839008177e-15 -0.0035846879961074635 6.938893903907228e-18" rpy="0 0 0"/>
+    <mass value="0.1765658885286299"/>
+    <inertia ixx="7.7e-05" iyy="3e-05" izz="7.7e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.087 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/left_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.087 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/left_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_motor_1">
+  <inertial>
+    <origin xyz="-2.366279783900818e-15 0.0035846879961074635 6.938893903907228e-18" rpy="0 0 0"/>
+    <mass value="0.17656588852862987"/>
+    <inertia ixx="7.7e-05" iyy="3e-05" izz="7.7e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.087 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/right_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.087 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/right_motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_caster_1">
+  <inertial>
+    <origin xyz="-2.7755575615628914e-17 4.045688931602918e-18 -0.016884686640517024" rpy="0 0 0"/>
+    <mass value="0.03723347556567059"/>
+    <inertia ixx="8e-06" iyy="8e-06" izz="7e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.13 -0.0 -0.075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/front_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.13 -0.0 -0.075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/front_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_caster_1">
+  <inertial>
+    <origin xyz="2.7755575615628914e-17 4.045688931602918e-18 -0.016884686640517024" rpy="0 0 0"/>
+    <mass value="0.03723347556567059"/>
+    <inertia ixx="8e-06" iyy="8e-06" izz="7e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.13 -0.0 -0.075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/rear_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.13 -0.0 -0.075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/rear_caster_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_caster_ball_1">
+  <inertial>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <mass value="0.09047786842338602"/>
+    <inertia ixx="1.4e-05" iyy="1.4e-05" izz="1.4e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.13 -0.0 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/front_caster_ball_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.13 -0.0 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/front_caster_ball_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear_caster_ball_1">
+  <inertial>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+    <mass value="0.09047786842338602"/>
+    <inertia ixx="1.4e-05" iyy="1.4e-05" izz="1.4e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.13 -0.0 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/rear_caster_ball_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.13 -0.0 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/rear_caster_ball_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front_bumper_1">
+  <inertial>
+    <origin xyz="-0.01910695984035818 -3.638816113715874e-16 9.649867056010786e-06" rpy="0 0 0"/>
+    <mass value="0.11922256008223256"/>
+    <inertia ixx="0.001019" iyy="8.4e-05" izz="0.001071" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.171 -0.0 -0.075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/front_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.171 -0.0 -0.075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/front_bumper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_1">
+  <inertial>
+    <origin xyz="6.763325865494219e-05 0.0 0.022533140296740903" rpy="0 0 0"/>
+    <mass value="0.40122272"/>
+    <inertia ixx="0.000232" iyy="0.00055" izz="0.000646" ixy="0.0" iyz="-0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.08 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.08 -0.0 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_1">
+  <inertial>
+    <origin xyz="4.644566323037454e-14 0.0 -0.002210699166780211" rpy="0 0 0"/>
+    <mass value="0.0023026507602741325"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.0856" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.0856" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="compute_board_1">
+  <inertial>
+    <origin xyz="-0.00070809707100606 -4.1508829818171984e-05 0.005652390670969981" rpy="0 0 0"/>
+    <mass value="0.07060907312585667"/>
+    <inertia ixx="1.5e-05" iyy="3.4e-05" izz="4.6e-05" ixy="-0.0" iyz="-0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.06 -0.0 -0.086" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/compute_board_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.06 -0.0 -0.086" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/compute_board_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_driver_1">
+  <inertial>
+    <origin xyz="1.7034984534092246e-14 0.0014616756865913488 0.005075601041051633" rpy="0 0 0"/>
+    <mass value="0.024540601125856657"/>
+    <inertia ixx="3e-06" iyy="3e-06" izz="5e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.055 -0.075 -0.086" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/motor_driver_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.055 -0.075 -0.086" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/motor_driver_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="power_board_1">
+  <inertial>
+    <origin xyz="1.7034984534092246e-14 -0.0014616756865913488 0.005075601041051633" rpy="0 0 0"/>
+    <mass value="0.024540601125856657"/>
+    <inertia ixx="3e-06" iyy="3e-06" izz="5e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.055 0.075 -0.086" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/power_board_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.055 0.075 -0.086" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/power_board_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_mount_1">
+  <inertial>
+    <origin xyz="-8.043128639705435e-18 -8.043128639705435e-18 0.022448079658605985" rpy="0 0 0"/>
+    <mass value="0.1908178245049211"/>
+    <inertia ixx="7e-05" iyy="7e-05" izz="4.9e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/lidar_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/lidar_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-3.807408854977555e-19 -1.2691362849925186e-19 -0.011057897985522758" rpy="0 0 0"/>
+    <mass value="0.1483637551010028"/>
+    <inertia ixx="6.4e-05" iyy="6.4e-05" izz="8.6e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.245" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.245" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="depth_camera_1">
+  <inertial>
+    <origin xyz="-0.01285896316562865 5.217942093631856e-06 -0.0016795369505537283" rpy="0 0 0"/>
+    <mass value="0.16976107605473045"/>
+    <inertia ixx="0.000117" iyy="2.1e-05" izz="0.000114" ixy="-0.0" iyz="-0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1525 -0.0 -0.1855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/depth_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1525 -0.0 -0.1855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/depth_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_antenna_1">
+  <inertial>
+    <origin xyz="1.3877787807814457e-17 6.938893903907228e-18 0.029614793678665513" rpy="0 0 0"/>
+    <mass value="0.0063216174573085026"/>
+    <inertia ixx="3e-06" iyy="3e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.12 -0.055 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/left_antenna_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.12 -0.055 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/left_antenna_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_antenna_1">
+  <inertial>
+    <origin xyz="1.3877787807814457e-17 -6.938893903907228e-18 0.029614793678665513" rpy="0 0 0"/>
+    <mass value="0.0063216174573085026"/>
+    <inertia ixx="3e-06" iyy="3e-06" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.12 0.055 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/right_antenna_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.12 0.055 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/right_antenna_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="estop_1">
+  <inertial>
+    <origin xyz="6.938893903907228e-18 1.3877787807814457e-17 0.015599920454745592" rpy="0 0 0"/>
+    <mass value="0.04737355637973288"/>
+    <inertia ixx="1.1e-05" iyy="1.1e-05" izz="1.1e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 0.105 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/estop_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 0.105 -0.165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://mobile_robot_2_description/meshes/estop_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="0.0 0.14 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="0.0 -0.14 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_motor_joint" type="fixed">
+  <origin xyz="0.0 0.087 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_motor_1"/>
+</joint>
+
+<joint name="right_motor_joint" type="fixed">
+  <origin xyz="0.0 -0.087 0.05" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_motor_1"/>
+</joint>
+
+<joint name="front_caster_joint" type="fixed">
+  <origin xyz="0.13 0.0 0.075" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_caster_1"/>
+</joint>
+
+<joint name="rear_caster_joint" type="fixed">
+  <origin xyz="-0.13 0.0 0.075" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear_caster_1"/>
+</joint>
+
+<joint name="front_caster_ball_joint" type="fixed">
+  <origin xyz="0.0 0.0 -0.055" rpy="0 0 0"/>
+  <parent link="front_caster_1"/>
+  <child link="front_caster_ball_1"/>
+</joint>
+
+<joint name="rear_caster_ball_joint" type="fixed">
+  <origin xyz="0.0 0.0 -0.055" rpy="0 0 0"/>
+  <parent link="rear_caster_1"/>
+  <child link="rear_caster_ball_1"/>
+</joint>
+
+<joint name="front_bumper_joint" type="fixed">
+  <origin xyz="0.171 0.0 0.075" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front_bumper_1"/>
+</joint>
+
+<joint name="battery_joint" type="fixed">
+  <origin xyz="-0.08 0.0 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="battery_1"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.0856" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_1"/>
+</joint>
+
+<joint name="compute_board_joint" type="fixed">
+  <origin xyz="0.06 0.0 0.086" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="compute_board_1"/>
+</joint>
+
+<joint name="motor_driver_joint" type="fixed">
+  <origin xyz="0.055 0.075 0.086" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="motor_driver_1"/>
+</joint>
+
+<joint name="power_board_joint" type="fixed">
+  <origin xyz="0.055 -0.075 0.086" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="power_board_1"/>
+</joint>
+
+<joint name="lidar_mount_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.165" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_mount_1"/>
+</joint>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.08" rpy="0 0 0"/>
+  <parent link="lidar_mount_1"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="depth_camera_joint" type="fixed">
+  <origin xyz="0.1525 0.0 0.1855" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="depth_camera_1"/>
+</joint>
+
+<joint name="left_antenna_joint" type="fixed">
+  <origin xyz="-0.12 0.055 0.165" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_antenna_1"/>
+</joint>
+
+<joint name="right_antenna_joint" type="fixed">
+  <origin xyz="-0.12 -0.055 0.165" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_antenna_1"/>
+</joint>
+
+<joint name="estop_joint" type="fixed">
+  <origin xyz="-0.06 -0.105 0.165" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="estop_1"/>
+</joint>
+
+</robot>
